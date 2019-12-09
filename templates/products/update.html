@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<form method="post" >
+    {{form.hidden_tag()}}
+
+ <div class="form-group">
+        {{form.Product_name.label}}
+        {{form.Product_name(class_="form-control")}}
+    </div>
+    <div class="form-group">
+        {{form.Product_price.label}}
+        {{form.Product_price(class_="form-control")}}
+    </div>
+    <div class="form-group">
+        {{form.Test.label}}
+        {{form.Test(class_="form-control")}}
+    </div>
+    <div class="form-group">
+        {{form.CreatedOn.label}}
+        {{form.CreatedOn(class_="form-control",disabled=True)}}
+    </div>
+    {{form.Submit(class_="btn btn-success")}}
+</form>
+{% endblock %}

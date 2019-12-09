@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div id="content__page__header" class="d-flex justify-content-between align-items-center">
+        <span>Shops</span>
+        <a href="{{url_for('new_shop')}}" class="btn btn-primary">Add</a>
+    </div>
+    <div id="content__page__body">
+        <table class="table">
+            <thead>
+            <tr>
+                <th style="width: 30%">Shop_name</th>
+                <th style="width: 30%">Locale</th>
+				<th style="width: 30%">Shop_contact</th>
+				<th style="width: 30%">Product_name</th>
+                <th style="width: 30%">Created On</th>
+                <th style="width: 20%"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for shop in shops: %}
+                <tr>
+                    <td>{{ shop.Shop_name }}</td>
+                    <td>{{ shop.Locale }}</td>
+					<td>{{ shop.Shop_contact }}</td>
+					<td>{{ shop.Product.Product_name }}</td>
+                    <td>{{ shop.CreatedOn.strftime("%b %d %Y %H:%M:%S")  }}</td>
+                    <td class="d-flex justify-content-end">
+                        <a href="{{url_for('update_shop', uuid=shop.shop_id)}}" class="btn btn-success">Edit</a>
+                        <form method="post" action="{{url_for('delete_shop', uuid=shop.shop_id)}}" class="delete-record">
+                            <input type="submit" value="Delete" class="btn btn-danger"/>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<form method="post" >
+    {{form.hidden_tag()}}
+
+    <div class="form-group">
+        {{form.Client_name.label}}
+        {{form.Client_name(class_="form-control")}}
+    </div>
+	
+    
+	<div class="form-group">
+        {{form.Age.label}}
+        {{form.Age(class_="form-control")}}
+    </div>
+    <div class="form-group">
+        {{form.Money.label}}
+        {{form.Money(class_="form-control")}}
+    </div>
+	<div class="form-group">
+        {{form.Contact.label}}
+        {{form.Contact(class_="form-control")}}
+    </div>
+    
+    {{form.Submit(class_="btn btn-success")}}
+</form>
+{% endblock %}

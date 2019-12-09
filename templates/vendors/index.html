@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div id="content__page__header" class="d-flex justify-content-between align-items-center">
+        <span>Vendors</span>
+        <a href="{{url_for('new_vendor')}}" class="btn btn-primary">Add</a>
+    </div>
+    <div id="content__page__body">
+        <table class="table">
+            <thead>
+            <tr>
+                <th style="width: 30%">Vendor_name</th>
+                <th style="width: 30%">City</th>
+				<th style="width: 30%">Rating</th>
+				<th style="width: 30%">Year</th>
+				<th style="width: 30%">Product_name</th>
+                <th style="width: 30%">Created On</th>
+                <th style="width: 20%"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for vendor in vendors: %}
+                <tr>
+                    <td>{{ vendor.Vendor_name }}</td>
+                    <td>{{ vendor.City }}</td>
+					<td>{{ vendor.Rating }}</td>
+					<td>{{ vendor.Year}}</td>
+					<td>{{ vendor.Product.Product_name }}</td>
+                    <td>{{ vendor.CreatedOn.strftime("%b %d %Y %H:%M:%S")  }}</td>
+                    <td class="d-flex justify-content-end">
+                        <a href="{{url_for('update_vendorr', uuid=vendor.vendor_id)}}" class="btn btn-success">Edit</a>
+                        <form method="post" action="{{url_for('delete_vendor', uuid=vendor.vendor_id)}}" class="delete-record">
+                            <input type="submit" value="Delete" class="btn btn-danger"/>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

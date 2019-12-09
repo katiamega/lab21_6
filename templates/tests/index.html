@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div id="content__page__header" class="d-flex justify-content-between align-items-center">
+        <span>Test</span>
+        <a href="{{url_for('new_test')}}" class="btn btn-primary">Add</a>
+    </div>
+    <div id="content__page__body">
+        <table class="table">
+            <thead>
+            <tr>
+                <th style="width: 30%">Price</th>
+                <th style="width: 30%">Productor</th>
+				<th style="width: 30%">Client_name</th>
+                <th style="width: 30%">Created On</th>
+                <th style="width: 20%"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for test in tests: %}
+                <tr>
+                    <td>{{ test.Price }}</td>
+                    <td>{{ test.Productor }}</td>
+                    <td>{{ test.Client.Client_name }}</td>
+                    <td>{{ test.CreatedOn.strftime("%b %d %Y %H:%M:%S") }}</td>
+                    <td class="d-flex justify-content-end">
+                        <a href="{{url_for('update_test', uuid=test.test_id)}}" class="btn btn-success">Edit</a>
+                        <form method="post" action="{{url_for('delete_test', uuid=test.test_id)}}" class="delete-record">
+                            <input type="submit" value="Delete" class="btn btn-danger"/>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

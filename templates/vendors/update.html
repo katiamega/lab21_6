@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<form method="post" >
+    {{form.hidden_tag()}}
+
+    <div class="form-group">
+        {{form.Vendor_name.label}}
+        {{form.Vendor_name(class_="form-control")}}
+    </div>
+    <div class="form-group">
+        {{form.City.label}}
+        {{form.City(class_="form-control")}}
+    </div>
+	    <div class="form-group">
+        {{form.Rating.label}}
+        {{form.Rating(class_="form-control")}}
+    </div>
+	<div class="form-group">
+        {{form.Year.label}}
+        {{form.Year(class_="form-control")}}
+    </div>
+    <div class="form-group">
+        {{form.Product.label}}
+        {{form.Product(class_="form-control")}}
+    </div>
+
+	{{form.Submit(class_="btn btn-success")}}
+</form>
+{% endblock %}

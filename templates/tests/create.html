@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<form method="post" >
+
+    {{form.hidden_tag()}}
+
+    <div class="form-group">
+        {{form.Price.label}}
+        {{form.Price(class_="form-control")}}
+    </div>
+	    <div class="form-group">
+        {{form.Productor.label}}
+        {{form.Productor(class_="form-control")}}
+    </div>
+	
+    <div class="form-group">
+        {{form.Client.label}}
+        {{form.Client(class_="form-control")}}
+    </div>
+    {{form.Submit(class_="btn btn-success")}}
+</form>
+{% endblock %}

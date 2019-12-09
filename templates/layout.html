@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laboratory2</title>
+	<title>***Choose gifts for you***</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+         <div class="navbar-header">
+        <a class="navbar-brand" href="https://github.com/katiamega/mega1"> Katia Megediuk </a></div>
+            <div id="header__navigation" class="d-flex">
+                <a href="{{ url_for('clients')}}">Clients</a>
+                <a href="{{ url_for('tests')}}">Tests</a>
+                <a href="{{ url_for('products')}}">Products</a>
+				<a href="{{ url_for('shops')}}">Shops</a>
+				<a href="{{ url_for('vendors')}}">Vendors</a>
+				<a href="{{ url_for('inits')}}">Inits</a>
+				
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="container d-flex flex-column" id="content__page">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>
